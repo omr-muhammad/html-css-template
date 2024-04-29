@@ -1,0 +1,135 @@
+@use "../base/" as *;
+
+.plans {
+  background-color: $sec-bcg;
+  padding-block: $main-pad;
+
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+    gap: $thirty-p;
+
+    .plan {
+      text-align: center;
+      background-color: white;
+      box-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
+      position: relative;
+      z-index: 1;
+
+      h2 {
+        margin-block: $thirty-p;
+      }
+
+      img {
+        width: 5rem;
+        margin-bottom: $thirty-p;
+      }
+
+      .price {
+        margin-bottom: $tewenty-p;
+
+        .num {
+          font: {
+            size: 3.75rem;
+            weight: bold;
+          }
+          color: $main-color;
+          margin-bottom: -$tewenty-p;
+        }
+
+        .duration {
+          color: $paragraph-color;
+        }
+      }
+
+      ul {
+        list-style: none;
+        text-align: left;
+
+        li {
+          padding: $tewenty-p;
+          border-top: 1px solid #eee;
+
+          &::before {
+            font-family: "Font Awesome 5 Free";
+            content: "\f00c";
+            color: $main-color;
+            font-weight: 900;
+            margin-right: 1rem;
+          }
+        }
+      }
+
+      .btn {
+        margin-block: $thirty-p $forty-p;
+
+        button {
+          cursor: pointer;
+          border: 2px solid $main-color;
+          color: $main-color;
+          transition: $main-transition;
+          background-color: white;
+          padding: $ten-p $tewenty-p;
+          border-radius: $rad-6p;
+          font: {
+            weight: bold;
+            size: 1rem;
+          }
+
+          &:hover {
+            background-color: $main-color;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.plan {
+  &::after {
+    @include growing-lines(left, top, 0, 50%, $main-transition, #f6f6f6);
+    z-index: -1;
+  }
+
+  &::before {
+    @include growing-lines(right, bottom, 0, 50%, $main-transition, #f6f6f6);
+    z-index: -1;
+  }
+
+  &:hover::after,
+  &:hover::before {
+    width: 100%;
+  }
+}
+
+.plan.advanced {
+  top: -$tewenty-p;
+
+  > .most-popular {
+    position: absolute;
+    writing-mode: vertical-rl;
+    background-color: $main-color;
+    color: white;
+    text-align: center;
+    padding: 5px {
+      bottom: 2.1875rem;
+      top: $ten-p;
+    }
+    font: {
+      weight: bold;
+      size: $main-size;
+    }
+    right: $tewenty-p;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      border-style: solid;
+      border-width: 0px 21.25px 20px 21.25px;
+      border-color: transparent transparent white transparent;
+    }
+  }
+}

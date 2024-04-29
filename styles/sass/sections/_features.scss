@@ -1,0 +1,123 @@
+@use "../base/" as *;
+
+.features {
+  padding-block: $main-pad;
+
+  .container .main-grid .feat {
+    border: 1px solid $main-border-color;
+    transition: $main-transition;
+
+    &:hover {
+      .img::after {
+        right: -10px;
+        border-width: 0px 700px 215px 0px;
+      }
+
+      .text {
+        button {
+          color: white !important;
+          background-position: left bottom;
+        }
+      }
+    }
+
+    .img {
+      position: relative;
+      overflow: hidden;
+
+      img {
+        max-width: 100%;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 5px;
+        border-width: 0px 0px 148px 700px;
+        border-color: transparent transparent white transparent;
+        border-style: solid;
+        transition: $main-transition;
+      }
+    }
+
+    .text {
+      text-align: center;
+      padding-inline: 1.625rem;
+
+      h3 {
+        font-size: $forty-p;
+        position: relative;
+        width: fit-content;
+        margin: auto;
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: calc(100% - 2rem);
+          height: 5px;
+          bottom: -2rem;
+          left: 1rem;
+        }
+
+        &.quality-h3::after {
+          background-color: hsl(3, 90%, 58%);
+        }
+        &.time-h3::after {
+          background-color: hsl(174, 100%, 29%);
+        }
+        &.passion-h3::after {
+          background-color: hsl(199, 98%, 48%);
+        }
+      }
+
+      p {
+        font-size: $tewenty-p;
+        color: $paragraph-color;
+        line-height: 2;
+        margin-block: 5.625rem;
+      }
+
+      button {
+        font-size: 1.35rem;
+        padding: 0.5rem 1.2rem;
+        margin-bottom: $thirty-p;
+        border: 3px solid;
+        border-radius: 6px;
+        font-weight: bold;
+        transition: $main-transition;
+        background-position: right bottom;
+        background-size: 200% 100%;
+        cursor: pointer;
+      }
+
+      .quality-btn {
+        color: hsl(3, 90%, 58%);
+        border-color: hsl(3, 90%, 58%);
+        background-image: linear-gradient(
+          to right,
+          hsl(3, 90%, 58%) 50%,
+          white 50%
+        );
+      }
+      .time-btn {
+        color: hsl(174, 100%, 29%);
+        border-color: hsl(174, 100%, 29%);
+        background-image: linear-gradient(
+          to right,
+          hsl(174, 100%, 29%) 50%,
+          white 50%
+        );
+      }
+      .passion-btn {
+        color: hsl(199, 98%, 48%);
+        border-color: hsl(199, 98%, 48%);
+        background-image: linear-gradient(
+          to right,
+          hsl(199, 98%, 48%) 50%,
+          white 50%
+        );
+      }
+    }
+  }
+}

@@ -1,0 +1,123 @@
+@use "../base/" as *;
+
+.landing-page-footer {
+  background-color: #191919;
+
+  .container {
+    padding-block: $main-pad;
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+      gap: $forty-p;
+
+      .socials {
+        display: flex;
+        flex-direction: column;
+        gap: $tewenty-p;
+
+        h2 {
+          color: white;
+          font-size: 3.125rem;
+        }
+
+        .icons {
+          display: flex;
+          align-items: center;
+          gap: $ten-p;
+
+          .icon {
+            width: 3.125rem;
+            height: 3.125rem;
+            background-color: #313131;
+            color: #b9b9b9;
+            @include flexBox(center);
+            transition: $main-transition;
+
+            &:hover {
+              background-color: white;
+              cursor: pointer;
+            }
+          }
+
+          .icon:first-child:hover {
+            i {
+              color: #3b5998;
+            }
+          }
+
+          .icon:nth-child(2):hover {
+            i {
+              color: #00acee;
+            }
+          }
+
+          .icon:last-child:hover {
+            i {
+              color: red;
+            }
+          }
+        }
+
+        p {
+          margin-bottom: $ten-p;
+          color: #b9b9b9;
+          line-height: 2;
+        }
+      }
+    }
+  }
+
+  p.copy-right {
+    border-top: 1px solid #444;
+    color: white;
+    text-align: center;
+    padding-block: 1.5rem;
+  }
+}
+
+.footer-content .link ul {
+  list-style: none;
+  color: #b9b9b9;
+
+  li {
+    border-bottom: 1px solid #444;
+    transition: $main-transition;
+    padding: $ten-p;
+
+    &:before {
+      font-family: "Font Awesome 5 Free";
+      content: "\F101";
+      font-weight: 900;
+      margin-right: 10px;
+      color: $main-color;
+    }
+
+    &:hover {
+      padding-left: $tewenty-p;
+    }
+  }
+}
+
+.footer-content .location {
+  .line {
+    display: flex;
+    align-items: center;
+    gap: $tewenty-p;
+    color: #b9b9b9;
+    margin-bottom: $thirty-p;
+
+    i {
+      color: $main-color;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.footer-content .footer-gallery {
+  img {
+    border: 3px solid white;
+    width: 4.53rem;
+    margin: 5px;
+  }
+}

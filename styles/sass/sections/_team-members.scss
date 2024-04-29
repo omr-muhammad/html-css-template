@@ -1,0 +1,90 @@
+@use "../base/" as *;
+
+.team-members {
+  padding-block: $main-pad;
+
+  .container {
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(18.875rem, 1fr));
+      gap: $forty-p;
+
+      .card {
+        .socials {
+          display: flex;
+          align-items: center;
+          padding-top: 3.5rem;
+
+          .img {
+            img {
+              max-width: 100%;
+              border-radius: $rad-6p;
+            }
+          }
+
+          .social-icons {
+            width: 6rem;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: $thirty-p;
+
+            i {
+              color: $paragraph-color;
+              cursor: pointer;
+            }
+          }
+        }
+
+        .info {
+          padding: $tewenty-p {
+            left: calc(100% / 6 + $tewenty-p);
+          }
+
+          h2 {
+            color: $main-color;
+            font-size: 1.5rem;
+            margin-bottom: $ten-p;
+          }
+
+          p {
+            color: $paragraph-color;
+          }
+        }
+      }
+
+      .card {
+        position: relative;
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          right: 0;
+          top: 0;
+          height: 100%;
+          border-radius: $rad-6p;
+          transition: $main-transition;
+          z-index: -1;
+          width: 0;
+          background-color: #e4e4e4;
+        }
+
+        &::before {
+          width: calc(100% - (100% / 6));
+          background-color: $sec-bcg;
+        }
+
+        &:hover {
+          &::after {
+            width: calc(100% - (100% / 6));
+          }
+
+          .img img {
+            filter: grayscale(100%);
+          }
+        }
+      }
+    }
+  }
+}

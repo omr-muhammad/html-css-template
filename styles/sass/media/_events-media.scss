@@ -1,0 +1,26 @@
+@media (max-width: 62rem) {
+  .events {
+    .main-content .img {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 48rem) {
+  .events {
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    .container .subscribe {
+      border-radius: 0;
+      flex-direction: column;
+
+      input,
+      button {
+        border-radius: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,137 @@
+@use "../base/index" as *;
+
+header {
+  box-shadow: 0 3px 20px #00000022;
+}
+
+.header {
+  position: relative;
+  @include flexBox(space-between);
+  flex-wrap: wrap;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+
+    a {
+      font-size: $big-size;
+      color: $main-color;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }
+
+  // start ul links styles
+  .header-links {
+    display: flex;
+    list-style: none;
+    font-size: $main-size;
+
+    > li span {
+      height: 5rem;
+      display: flex;
+      align-items: center;
+      padding-inline: 1.825rem;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 3px;
+        background-color: $main-color-alt;
+        top: 0;
+        left: 0;
+        transition: $main-transition ease-out;
+      }
+
+      &:hover {
+        background-color: $hover-bcg-color;
+        color: $main-color-alt;
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+
+    li:last-child:hover .mega-links {
+      opacity: 1;
+      translate: 0 -6.25rem;
+      pointer-events: all;
+    }
+  }
+  // End ul links styles
+  li {
+    cursor: pointer;
+  }
+}
+
+.mega-links {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6.25rem);
+  width: 100%;
+  padding: $tewenty-p;
+  background-color: white;
+  border-bottom: 3px solid $main-color;
+  @include flexBox(space-between);
+  align-items: flex-start;
+  transition: $main-transition ease-in;
+  pointer-events: none;
+  z-index: 10000;
+
+  .mega-img {
+    max-width: 50%;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      padding: 1rem;
+      color: $main-color;
+      position: relative;
+      font: {
+        size: $main-size;
+        weight: bold;
+      }
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $main-border-color;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 0;
+        background-color: $hover-bcg-color;
+        transition: $main-transition;
+        z-index: 0;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+
+      i {
+        margin-right: $tewenty-p;
+      }
+
+      i,
+      small {
+        position: relative;
+        z-index: 1000000;
+      }
+    }
+  }
+}

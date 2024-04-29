@@ -1,0 +1,18 @@
+@media (max-width: 48rem) {
+  .footer-content {
+    justify-items: center;
+    text-align: center;
+
+    .location .line {
+      flex-direction: column;
+    }
+
+    .socials {
+      align-items: center;
+    }
+
+    > div {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,113 @@
+@use "../base/" as *;
+
+.events {
+  padding-block: $main-pad;
+  position: relative;
+
+  .main-content {
+    display: flex;
+    align-items: center;
+
+    .info {
+      text-align: center;
+
+      .time {
+        @include flexBox(center);
+        gap: $ten-p;
+
+        .counter {
+          border: 1px solid $main-border-color;
+          border-radius: $rad-6p;
+          transition: $mid-trans;
+
+          &:hover {
+            border-color: $main-color;
+
+            .num {
+              border-color: $main-color;
+            }
+          }
+
+          .num {
+            transition: $mid-trans;
+            font: {
+              size: 2rem;
+              weight: bold;
+            }
+            color: $main-color;
+            padding: 1rem;
+            border-bottom: 1px solid $main-border-color;
+            letter-spacing: 2px;
+          }
+
+          span {
+            padding: $ten-p;
+            font-size: 13px;
+            display: block;
+          }
+        }
+      }
+
+      h2 {
+        margin-block: $forty-p $thirty-p;
+        font-size: $thirty-p;
+      }
+
+      p {
+        line-height: 1.6;
+        color: $paragraph-color;
+        font-size: $main-size;
+      }
+    }
+  }
+
+  .container .subscribe {
+    max-width: 37.5rem;
+    margin: $forty-p auto 0;
+    background-color: #f5f5f5;
+    border-radius: 4rem;
+    padding: $forty-p;
+    display: flex;
+    gap: $tewenty-p;
+
+    input {
+      border: none;
+      outline: none;
+      padding: $tewenty-p;
+      border-radius: $thirty-p;
+      flex-grow: 1;
+    }
+
+    button {
+      border: none;
+      background-color: $main-color;
+      color: white;
+      padding: $tewenty-p;
+      border-radius: $thirty-p;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  }
+}
+
+.events {
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    background-image: url(../../../images/events/dots.png);
+    width: 204px;
+    height: 186px;
+  }
+
+  &::before {
+    left: 0;
+    bottom: 200px;
+  }
+
+  &::after {
+    top: 200px;
+    right: 0;
+  }
+}

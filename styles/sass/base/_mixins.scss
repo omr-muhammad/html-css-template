@@ -1,0 +1,94 @@
+@use "./variable" as *;
+
+@mixin flexBox($align) {
+  display: flex;
+  align-items: center;
+  justify-content: $align;
+}
+
+@mixin circle($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
+
+@mixin moving-dots($hr-place) {
+  content: "";
+  position: absolute;
+  @include circle(12px);
+  top: 50%;
+  translate: 0 -50%;
+  background-color: $main-color;
+  #{$hr-place}: -2rem;
+  z-index: -1;
+}
+
+@mixin h-two {
+  font-size: $thirty-p;
+  padding: $ten-p $tewenty-p;
+  border: 2px solid black;
+  text-transform: uppercase;
+  position: relative;
+
+  &::before {
+    @include moving-dots(left);
+  }
+  &::after {
+    @include moving-dots(right);
+  }
+
+  &:hover {
+    color: white;
+    transition-delay: $mid-trans;
+    border-color: transparent;
+  }
+
+  &:hover::before {
+    animation: fill-from-left $mid-trans ease-in forwards;
+  }
+
+  &:hover::after {
+    animation: fill-from-right $mid-trans ease-in forwards;
+  }
+}
+
+@mixin section-heading-mixin {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5rem;
+
+  h2 {
+    @include h-two;
+  }
+}
+
+@mixin growing-lines($hr, $vr, $w-size, $h-size, $trans, $color) {
+  content: "";
+  position: absolute;
+  #{$hr}: 0;
+  #{$vr}: 0;
+  width: $w-size;
+  height: $h-size;
+  transition: $trans;
+  background-color: $color;
+}
+
+@mixin filling-square-mixin($direction) {
+  @keyframes fill-from-#{$direction} {
+    0% {
+      #{$direction}: -2rem;
+    }
+    50% {
+      #{$direction}: 0rem;
+    }
+    90% {
+      #{$direction}: 0rem;
+    }
+    100% {
+      #{$direction}: 0;
+      width: 60%;
+      height: 100%;
+      border-radius: 0;
+    }
+  }
+}

@@ -1,0 +1,86 @@
+@use "../base/" as *;
+
+.discount {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+
+  .left,
+  .right {
+    @include flexBox(center);
+    flex-direction: column;
+    gap: $thirty-p;
+    flex-basis: 50%;
+  }
+
+  .left {
+    position: relative;
+    color: white;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(23 135 224 / 90%);
+      z-index: -1;
+    }
+
+    h2 {
+      font-size: $forty-p;
+      letter-spacing: -2px;
+    }
+
+    p {
+      max-width: 31.25rem;
+      line-height: 1.6;
+      font-size: $main-size;
+      text-align: center;
+    }
+
+    img {
+      width: 18.75rem;
+    }
+  }
+}
+
+.discount {
+  .form {
+    h2 {
+      font-size: $forty-p;
+      margin-bottom: $thirty-p;
+    }
+
+    form {
+      @include flexBox(center);
+      flex-direction: column;
+      gap: 1.5rem;
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 1rem;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #cdc;
+        background-color: #f9f9f9;
+        caret-color: $main-color;
+      }
+
+      button {
+        width: 100%;
+        padding: 1rem;
+        background-color: $main-color;
+        color: white;
+        font: {
+          size: 1rem;
+          weight: bold;
+        }
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+}

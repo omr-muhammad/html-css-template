@@ -1,0 +1,62 @@
+@use "../base/" as *;
+
+.articles {
+  padding-block: $main-pad;
+
+  .container {
+    .grid-articles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+      gap: 2.5rem;
+
+      .card {
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
+        transition: $main-transition;
+
+        .img {
+          img {
+            max-width: 100%;
+          }
+        }
+
+        .text {
+          padding: $tewenty-p;
+          border-bottom: 1px solid $main-border-color;
+
+          p {
+            color: $paragraph-color;
+            line-height: 1.6;
+            margin-top: $ten-p;
+          }
+        }
+
+        .card-footer {
+          @include flexBox(space-between);
+          padding: $tewenty-p;
+          font-size: 1rem;
+          color: $main-color;
+
+          h3 {
+            cursor: pointer;
+          }
+
+          i {
+            transition: $main-transition;
+          }
+        }
+
+        &:hover {
+          box-shadow: 0 2px 15px rgb(0 0 0 / 30%);
+
+          .card-footer {
+            i {
+              animation: article-arrow $mid-trans infinite;
+            }
+          }
+        }
+      }
+    }
+  }
+}

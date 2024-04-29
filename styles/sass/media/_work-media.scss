@@ -1,0 +1,25 @@
+@media (max-width: 62rem) {
+  .works .container {
+    flex-direction: column;
+
+    .img {
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .boxes {
+      .box {
+        flex-direction: column;
+
+        .icon {
+          width: 6rem;
+        }
+
+        .text {
+          text-align: center;
+        }
+      }
+    }
+  }
+}

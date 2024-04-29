@@ -1,0 +1,76 @@
+@use "../base/" as *;
+
+.stats {
+  padding-block: $main-pad;
+  background-image: url("../../../images/stats/stats.jpg");
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: hsla(0, 0%, 100%, 0.9);
+    z-index: -1;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: $forty-p;
+    margin-bottom: 3.125rem;
+  }
+
+  .container {
+    display: grid;
+    gap: $tewenty-p;
+    grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+
+    .box {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: $ten-p;
+      padding: $thirty-p 1rem;
+      background-color: white;
+      position: relative;
+      opacity: 0.8;
+
+      span:first-of-type {
+        font: {
+          size: 3.125rem;
+          weight: bold;
+        }
+      }
+
+      &::before {
+        @include growing-lines(left, bottom, 2px, 0, 0.8s, $main-color);
+      }
+
+      &::after {
+        @include growing-lines(right, top, 2px, 0, 0.8s, $main-color);
+      }
+
+      &:hover {
+        opacity: 1;
+
+        &::after,
+        &::before {
+          height: 100%;
+        }
+      }
+
+      span:last-child {
+        color: $main-color;
+        font: {
+          size: $tewenty-p;
+          weight: bold;
+          style: italic;
+        }
+      }
+    }
+  }
+}

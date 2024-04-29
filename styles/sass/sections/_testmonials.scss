@@ -1,0 +1,72 @@
+@use "../base" as *;
+
+.testmoinals {
+  padding-block: $main-pad;
+  background-color: $sec-bcg;
+
+  .container {
+    .main-grid {
+      .card {
+        background-color: white;
+        padding: $tewenty-p;
+        border-radius: $rad-6p;
+        display: flex;
+        flex-direction: column;
+        gap: $ten-p;
+        box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.1);
+        position: relative;
+
+        h4 {
+          font-weight: normal;
+          color: $paragraph-color;
+        }
+
+        .rate {
+          i.filled {
+            color: #ffc107;
+          }
+        }
+
+        p {
+          line-height: 1.6;
+          color: $paragraph-color;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          right: -$ten-p;
+          top: 0;
+          translate: 0 -50%;
+          @include circle(6.25rem);
+          border: $ten-p solid $sec-bcg;
+        }
+
+        &.farag::after {
+          background-image: url("../../../images/testmonials/av-0.png");
+          background-size: cover;
+        }
+        &.ibrahim::after {
+          background-image: url("../../../images/testmonials/av-1.png");
+          background-size: cover;
+        }
+        &.nabil::after {
+          background-image: url("../../../images/testmonials/av-2.png");
+          background-size: cover;
+        }
+        &.hendawy::after {
+          background-image: url("../../../images/testmonials/av-3.png");
+          background-size: cover;
+        }
+        &.ashraf::after {
+          background-image: url("../../../images/testmonials/av-4.png");
+          background-size: cover;
+        }
+        &.osama::after {
+          background-image: url("../../../images/testmonials/av-5.png");
+          background-size: cover;
+        }
+      }
+    }
+  }
+}

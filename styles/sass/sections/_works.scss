@@ -1,0 +1,67 @@
+@use "../base/" as *;
+
+.works {
+  background-color: $sec-bcg;
+  padding-block: $main-pad;
+
+  .container {
+    @include flexBox(center);
+    gap: $main-pad;
+
+    .boxes {
+      display: flex;
+      flex-direction: column;
+      gap: $tewenty-p;
+
+      .box {
+        border: 2px solid white;
+        background-color: #f5f5f5;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        border-radius: $rad-6p;
+        position: relative;
+        z-index: 10;
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          translate: -50% -50%;
+          width: 100%;
+          height: 100%;
+          background-color: #ededed;
+          transform: scale(0);
+          transition: $main-transition;
+          z-index: -1;
+        }
+
+        &:hover::before {
+          transform: scale(1);
+        }
+
+        .icon {
+          width: 10rem;
+
+          img {
+            width: 100%;
+          }
+        }
+
+        .text {
+          h3 {
+            margin-bottom: $tewenty-p;
+            font-size: 1.375rem;
+          }
+
+          p {
+            color: $paragraph-color;
+            line-height: 1.6;
+          }
+        }
+      }
+    }
+  }
+}

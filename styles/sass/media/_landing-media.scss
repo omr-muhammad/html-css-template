@@ -1,0 +1,44 @@
+@use "../base/index" as *;
+
+@media (max-width: 62rem) {
+  .landing {
+    .container {
+      .flex-item {
+        text-align: center;
+      }
+
+      .heading-text {
+        flex-grow: 1;
+
+        .heading-bio {
+          width: 75%;
+          margin: auto;
+        }
+      }
+
+      .landing-img {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 48rem) {
+  .landing {
+    height: calc(100vh - 6rem);
+
+    .container {
+      .heading-text {
+        //
+        .h-one {
+          font-size: 1.75rem;
+        }
+
+        .heading-bio {
+          font-size: $main-size;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

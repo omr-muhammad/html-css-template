@@ -1,0 +1,46 @@
+@use "../base/" as *;
+
+@media (max-width: 62rem) {
+  .mega-links {
+    justify-content: center;
+
+    .mega-img {
+      display: none;
+    }
+
+    ul {
+      flex-grow: 1;
+    }
+  }
+}
+
+@media (max-width: 48rem) {
+  .header {
+    flex-direction: column;
+
+    .logo {
+      height: 3rem;
+    }
+
+    .header-links {
+      font-size: 0.825rem;
+
+      > li span {
+        height: 3rem;
+        padding-inline: 0.5rem;
+      }
+    }
+
+    .mega-links {
+      flex-direction: column;
+
+      ul {
+        width: 100%;
+
+        li {
+          border-bottom: 1px solid $main-border-color;
+        }
+      }
+    }
+  }
+}

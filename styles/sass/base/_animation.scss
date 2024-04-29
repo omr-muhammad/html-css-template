@@ -1,0 +1,37 @@
+@use "./mixins" as *;
+
+@keyframes up-down {
+  0% {
+    translate: 0 -2.5rem;
+  }
+  100% {
+    translate: 0 2.5rem;
+  }
+}
+
+@keyframes arrow {
+  20% {
+    translate: -50% 0;
+  }
+  40% {
+    translate: -50% -1.25rem;
+  }
+  60% {
+    translate: -50% 0;
+  }
+  80% {
+    translate: -50% -1.25rem;
+  }
+  100% {
+    translate: -50% 0;
+  }
+}
+
+@keyframes article-arrow {
+  to {
+    translate: 0.625rem;
+  }
+}
+
+@include filling-square-mixin("right");
+@include filling-square-mixin("left");

@@ -1,0 +1,61 @@
+@use "../base/" as *;
+
+.our-skills {
+  padding-block: $main-pad;
+
+  .container {
+    display: flex;
+    align-items: center;
+
+    .skills {
+      flex-grow: 1;
+
+      .skill {
+        h3 {
+          @include flexBox(space-between);
+
+          span {
+            border: 1px solid #cdc;
+            font-size: 0.75rem;
+            color: $main-color;
+            padding: 3px 5px;
+            border-radius: 4px;
+          }
+        }
+
+        .bar {
+          margin-block: $tewenty-p;
+          height: $thirty-p;
+          background-color: #eee;
+
+          .progress {
+            transition: 0.8s ease-out;
+            background-color: $main-color;
+            height: 100%;
+            width: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.our-skills.animate {
+  .container .skills .skill .bar {
+    .progress.html {
+      width: 80%;
+    }
+
+    .progress.css {
+      width: 90%;
+    }
+
+    .progress.js {
+      width: 70%;
+    }
+
+    .progress.react {
+      width: 70%;
+    }
+  }
+}

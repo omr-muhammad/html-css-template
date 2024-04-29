@@ -1,0 +1,11 @@
+@use "../base/" as *;
+
+@media (max-width: 62rem) {
+  .discount {
+    .left,
+    .right {
+      flex-basis: 100%;
+      padding-block: $main-pad;
+    }
+  }
+}

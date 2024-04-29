@@ -1,0 +1,16 @@
+@use "../base/" as *;
+
+@media (max-width: 62rem) {
+  .our-skills .container {
+    flex-direction: column;
+    gap: $forty-p;
+
+    img {
+      max-width: 100%;
+    }
+
+    .skills {
+      width: 100%;
+    }
+  }
+}
